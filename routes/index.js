@@ -41,4 +41,15 @@ router.post(
 // define route for user by id
 router.get("/admin/users/:id", verifyToken, userController.findUserById);
 
+// define route for user update
+router.put(
+  "/admin/users/:id",
+  verifyToken,
+  validateUser,
+  userController.updateUser
+);
+
+// define route for user delete
+router.delete("/admin/users/:id", verifyToken, userController.deleteUser);
+
 module.exports = router;
